@@ -3,7 +3,6 @@
     <div class="card">
       <div class="card-header bg-primary text-light">
         <h5 class="d-inline">Tareas</h5>
-
         <div class="float-right">
           <app-task-form [user]="user" (created)="add($event)"></app-task-form>
         </div>
@@ -26,6 +25,13 @@
               [task]="task"
               (completed)="update($event)"
             ></app-task-complete>
+            <a
+              href="#"
+              class="badge badge-warning ml-3"
+              title="Editar"
+              (click)="edit(task)"
+              ><span class="fa fa-edit"></span>
+            </a>
           </div>
           <p class="text-justified">{{ task.name }}</p>
         </li>

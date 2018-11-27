@@ -20,20 +20,40 @@ export class TasksComponent implements OnInit {
     this.tasks = await this.taskService.find(this.user.id);
   }
 
+  /**
+   * Agrega una tarea
+   * @param task
+   */
   add(task: Task) {
     this.tasks.push(task);
   }
 
+  /**
+   * Cambia el formato de visualizacion de la fecha
+   * @param date
+   */
   locale(date: string) {
     return new Date(date).toLocaleDateString();
   }
 
+  /**
+   * Actualiza la lista de tareas
+   * @param task
+   */
   update(task: Task) {
     this.tasks = this.tasks.map(t => (t.id === task.id ? task : t));
   }
 
+  /**
+   * Resultados de la busqueda
+   */
   get results() {
     let regex = new RegExp(this.query, "ig");
     return this.tasks.filter(t => regex.test(t.name));
   }
+
+  /**
+   *
+   */
+  edit(task: Task) {}
 }

@@ -1,8 +1,9 @@
 <span class="badge badge-warning" *ngIf="task.completed">COMPLETADO</span>
-<button
-  class="btn btn-sm btn-primary"
+<a
+  href="#"
+  class="badge badge-primary"
   *ngIf="!task.completed"
   (click)="complete()"
 >
   COMPLETAR
-</button>
+</a>
