@@ -1,0 +1,4 @@
+.ng-dirty.ng-invalid:not(form) {
+  border: 1px solid red;
+  box-shadow: 0px 0px 1px red;
+}

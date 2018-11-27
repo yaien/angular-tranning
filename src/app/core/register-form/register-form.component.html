@@ -1,3 +1,65 @@
-<p>
-  register-form works!
-</p>
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          required
+          [(ngModel)]="model.name"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Correo</label>
+        <input
+          type="email"
+          name="email"
+          class="form-control"
+          required
+          [(ngModel)]="model.email"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          required
+          name="password"
+          [(ngModel)]="model.password"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label> Confirmar Contraseña</label>
+        <input
+          type="password"
+          name="confirmation"
+          class="form-control"
+          required
+          [(ngModel)]="model.confirmation"
+          [pattern]="confirmPattern"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-danger text-center" *ngIf="status">{{ status }}</div>
+
+  <button
+    type="submit"
+    class="btn btn-primary d-block m-auto"
+    [disabled]="form.form.invalid"
+  >
+    REGISTRARSE
+  </button>
+</form>
