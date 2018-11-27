@@ -1,11 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a href="#" class="navbar-brand">Tareas</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <a routerLink="" class="navbar-brand">Tareas</a>
   <div class="collapse navbar-collapse">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto" *ngIf="(user | async)">
       <li class="nav-item">
-        <a href="#" class="nav-link">Inicio de Sesión</a>
+        <a routerLink="profile" class="nav-link" title="Mi perfil">
+          {{ (user | async).name }}
+        </a>
       </li>
-      <li class="nav-item"><a href="#" class="nav-link">Registro</a></li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Cerrar Sesión</a>
+      </li>
     </ul>
   </div>
 </nav>

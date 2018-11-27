@@ -1,15 +1,21 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
-import { PagesModule, HomeComponent, RegisterComponent } from "../pages";
+import { PagesModule, HomeComponent } from "../pages";
+import { ProfileComponent } from "../pages/profile/profile.component";
+import { AuthRouteService } from "./auth-route.service";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "register", component: RegisterComponent }
+  {
+    path: "profile",
+    component: ProfileComponent,
+    canActivate: [AuthRouteService]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), PagesModule],
-  declarations: []
+  declarations: [],
+  providers: [AuthRouteService]
 })
 export class RoutingModule {}

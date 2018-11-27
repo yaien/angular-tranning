@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { AuthService } from "src/app/logic/auth.service";
+import { Observable } from "rxjs";
+import { User } from "src/app/entities";
 
 @Component({
-  selector: 'app-master',
-  templateUrl: './master.component.html',
-  styleUrls: ['./master.component.css']
+  selector: "app-master",
+  templateUrl: "./master.component.html",
+  styleUrls: ["./master.component.css"]
 })
-export class MasterComponent implements OnInit {
+export class MasterComponent {
+  user: Observable<User>;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private auth: AuthService) {
+    this.user = auth.user;
   }
 
+  logout() {
+    this.auth.logout();
+  }
 }
