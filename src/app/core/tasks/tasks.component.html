@@ -21,6 +21,12 @@
           <span class="badge badge-primary">
             Fecha Limite {{ locale(task.limit) }}
           </span>
+          <div class="float-right">
+            <app-task-complete
+              [task]="task"
+              (completed)="update($event)"
+            ></app-task-complete>
+          </div>
           <p class="text-justified">{{ task.name }}</p>
         </li>
       </ul>

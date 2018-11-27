@@ -7,6 +7,8 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { TaskFormComponent } from "./task-form/task-form.component";
 import { ProfileBasicComponent } from "./profile-basic/profile-basic.component";
 import { ProfilePasswordComponent } from "./profile-password/profile-password.component";
+import { TasksComponent } from "./tasks/tasks.component";
+import { TaskCompleteComponent } from "./task-complete/task-complete.component";
 
 @NgModule({
   imports: [CommonModule, NgbModule, FormsModule, ReactiveFormsModule],
@@ -15,13 +17,17 @@ import { ProfilePasswordComponent } from "./profile-password/profile-password.co
     RegisterFormComponent,
     TaskFormComponent,
     ProfileBasicComponent,
-    ProfilePasswordComponent
+    ProfilePasswordComponent,
+    TasksComponent,
+    TaskCompleteComponent
   ],
   exports: [
     LoginFormComponent,
     TaskFormComponent,
     ProfileBasicComponent,
-    ProfilePasswordComponent
+    ProfilePasswordComponent,
+    TasksComponent,
+    TaskCompleteComponent
   ]
 })
 export class CoreModule {}

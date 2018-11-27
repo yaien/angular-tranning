@@ -28,6 +28,10 @@ export class TasksComponent implements OnInit {
     return new Date(date).toLocaleDateString();
   }
 
+  update(task: Task) {
+    this.tasks = this.tasks.map(t => (t.id === task.id ? task : t));
+  }
+
   get results() {
     let regex = new RegExp(this.query, "ig");
     return this.tasks.filter(t => regex.test(t.name));

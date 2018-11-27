@@ -25,4 +25,9 @@ export class TaskService {
     let result = { ...payload, id };
     return result;
   }
+
+  async update(id: number, task: Task) {
+    await this.db.tasks.update(id, task);
+    return this.db.tasks.get(id);
+  }
 }

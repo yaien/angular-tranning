@@ -5,4 +5,5 @@ export interface Task {
   limit: string;
   userId: number;
   comments?: string[];
+  completed?: boolean;
 }

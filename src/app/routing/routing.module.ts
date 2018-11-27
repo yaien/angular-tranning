@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { PagesModule, HomeComponent } from "../pages";
-import { ProfileComponent } from "../pages/profile/profile.component";
+import { PagesModule, HomeComponent, ProfileComponent } from "../pages";
 import { AuthRouteService } from "./auth-route.service";
 
 const routes: Routes = [
