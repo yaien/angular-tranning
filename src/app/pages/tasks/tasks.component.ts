@@ -9,8 +9,9 @@ import { AuthService } from "src/app/logic/auth.service";
   styleUrls: ["./tasks.component.css"]
 })
 export class TasksComponent implements OnInit {
-  tasks: Task[];
+  tasks: Task[] = [];
   user: User;
+  query: string;
 
   constructor(private taskService: TaskService, private auth: AuthService) {}
 
@@ -25,5 +26,10 @@ export class TasksComponent implements OnInit {
 
   locale(date: string) {
     return new Date(date).toLocaleDateString();
+  }
+
+  get results() {
+    let regex = new RegExp(this.query, "ig");
+    return this.tasks.filter(t => regex.test(t.name));
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/logic/auth.service";
 import { Observable } from "rxjs";
 import { User } from "src/app/entities";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-master",
@@ -11,11 +12,12 @@ import { User } from "src/app/entities";
 export class MasterComponent {
   user: Observable<User>;
 
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private router: Router) {
     this.user = auth.user;
   }
 
-  logout() {
+  async logout() {
+    await this.router.navigate([""]);
     this.auth.logout();
   }
 }

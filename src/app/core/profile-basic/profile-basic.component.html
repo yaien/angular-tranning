@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-header bg-primary text-light">Informacion Basica</div>
+  <div class="card-body">
+    <form #form="ngForm" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          required
+          [(ngModel)]="basic.name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="">Correo</label>
+        <input
+          type="email"
+          name="email"
+          required
+          class="form-control"
+          [(ngModel)]="basic.email"
+        />
+      </div>
+      <div
+        class="alert"
+        *ngIf="status"
+        [ngClass]="{
+          'alert-danger': !status.success,
+          'alert-success': status.success
+        }"
+      >
+        {{ status.message }}
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary d-block m-auto"
+        [disabled]="form.form.invalid"
+      >
+        ACTUALIZAR
+      </button>
+    </form>
+  </div>
+</div>

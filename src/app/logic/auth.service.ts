@@ -57,4 +57,10 @@ export class AuthService {
     this.session.reset();
     this.behavior.next(null);
   }
+
+  async reload() {
+    if (!this.value) return;
+    let user = await this.db.users.get(this.value.id);
+    this.behavior.next(user);
+  }
 }

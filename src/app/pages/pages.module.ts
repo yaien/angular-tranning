@@ -6,9 +6,10 @@ import { CoreModule } from "../core/core.module";
 import { TasksComponent } from "./tasks/tasks.component";
 import { RouterModule } from "@angular/router";
 import { ProfileComponent } from "./profile/profile.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
-  imports: [CommonModule, CoreModule, RouterModule],
+  imports: [CommonModule, CoreModule, RouterModule, FormsModule],
   declarations: [
     HomeComponent,
     RegisterComponent,

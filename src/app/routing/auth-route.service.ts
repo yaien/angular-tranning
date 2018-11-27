@@ -20,14 +20,6 @@ export class AuthRouteService implements CanActivate {
   }
 
   canActivate() {
-    return this.auth.user.pipe(
-      map(user => {
-        if (!user) {
-          this.router.navigate([""]);
-          return false;
-        }
-        return true;
-      })
-    );
+    return this.auth.user.pipe(map(user => (user ? true : false)));
   }
 }
