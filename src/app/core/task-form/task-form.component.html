@@ -1,0 +1,45 @@
+<button class="btn btn-sm btn-warning" (click)="open(content)">AGREGAR</button>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Registro</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #form="ngForm" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label>Nombre</label>
+        <textarea
+          name="name"
+          class="form-control"
+          required
+          [(ngModel)]="model.name"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="">Fecha Limite</label>
+        <input
+          type="date"
+          name="limit"
+          class="form-control"
+          required
+          [(ngModel)]="model.limit"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary d-block m-auto"
+        [disabled]="form.form.invalid"
+      >
+        AGREGAR
+      </button>
+    </form>
+  </div>
+</ng-template>

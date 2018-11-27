@@ -1,3 +1,20 @@
-<p>
-  tasks works!
-</p>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header bg-primary text-light">
+        <h5 class="d-inline">Tareas</h5>
+        <div class="float-right">
+          <app-task-form [user]="user" (created)="add($event)"></app-task-form>
+        </div>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item p-2" *ngFor="let task of tasks">
+          <span class="badge badge-primary">
+            Fecha Limite {{ locale(task.limit) }}
+          </span>
+          <p class="text-justified">{{ task.name }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
