@@ -11,17 +11,10 @@
   >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbar">
-    <ul class="navbar-nav ml-auto" *ngIf="(user | async)">
-      <li class="nav-item">
-        <a routerLink="profile" class="nav-link" title="Mi perfil">
-          {{ (user | async).name }}
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="logout()">Cerrar Sesión</a>
-      </li>
-    </ul>
-  </div>
+  <app-navbar
+    [user]="user | async"
+    (logout)="logout()"
+    class="ml-auto"
+  ></app-navbar>
 </nav>
 <div class="mt-5 container"><ng-content></ng-content></div>

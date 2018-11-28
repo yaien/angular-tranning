@@ -1,0 +1,17 @@
+<div class="collapse navbar-collapse" id="navbar">
+  <ul class="navbar-nav ml-auto" *ngIf="user">
+    <li class="nav-item">
+      <img class="img-fluid rounded" ngxGravatar [email]="user.email" />
+    </li>
+    <li class="nav-item">
+      <a routerLink="profile" class="nav-link" title="Mi perfil">
+        {{ user.name }}
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="javascript:;" class="nav-link" (click)="logout.emit()"
+        >Cerrar Sesión</a
+      >
+    </li>
+  </ul>
+</div>
