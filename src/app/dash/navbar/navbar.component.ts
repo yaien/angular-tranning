@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
   @Output()
   logout = new EventEmitter();
 
+  collapsed = false;
+
   constructor() {}
 
   ngOnInit() {}

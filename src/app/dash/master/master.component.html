@@ -1,20 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <a routerLink="" class="navbar-brand">Tareas</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbar"
-    aria-controls="navbar"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <app-navbar
-    [user]="user | async"
-    (logout)="logout()"
-    class="ml-auto"
-  ></app-navbar>
-</nav>
+<app-navbar
+  [user]="user | async"
+  (logout)="logout()"
+  class="ml-auto"
+></app-navbar>
+
 <div class="mt-5 container"><ng-content></ng-content></div>

@@ -1,17 +1,36 @@
-<div class="collapse navbar-collapse" id="navbar">
-  <ul class="navbar-nav ml-auto" *ngIf="user">
-    <li class="nav-item">
-      <img class="img-fluid rounded" ngxGravatar [email]="user.email" />
-    </li>
-    <li class="nav-item">
-      <a routerLink="profile" class="nav-link" title="Mi perfil">
-        {{ user.name }}
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="javascript:;" class="nav-link" (click)="logout.emit()"
-        >Cerrar Sesión</a
-      >
-    </li>
-  </ul>
-</div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <a routerLink="" class="navbar-brand">Tareas</a>
+  <button
+    class="navbar-toggler float-right"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbar"
+    aria-controls="navbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    (click)="collapsed = !collapsed"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div
+    id="navbar"
+    class="collapse navbar-collapse"
+    [ngClass]="{ show: !collapsed }"
+  >
+    <ul class="navbar-nav ml-auto" *ngIf="user">
+      <li class="nav-item text-center">
+        <img class="img-fluid rounded" ngxGravatar [email]="user.email" />
+      </li>
+      <li class="nav-item text-center">
+        <a routerLink="profile" class="nav-link" title="Mi perfil">
+          {{ user.name }}
+        </a>
+      </li>
+      <li class="nav-item text-center">
+        <a href="javascript:;" class="nav-link" (click)="logout.emit()"
+          >Cerrar Sesión</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
