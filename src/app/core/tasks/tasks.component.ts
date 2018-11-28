@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { TaskService } from "src/app/logic/task.service";
 import { Task, User } from "src/app/entities";
 import { AuthService } from "src/app/logic/auth.service";
+import { TaskFormComponent } from "../task-form/task-form.component";
 
 @Component({
   selector: "app-tasks",
@@ -12,6 +13,12 @@ export class TasksComponent implements OnInit {
   tasks: Task[] = [];
   user: User;
   query: string;
+
+  @ViewChild("createForm")
+  createForm: TaskFormComponent;
+
+  @ViewChild("editForm")
+  editForm: TaskFormComponent;
 
   constructor(private taskService: TaskService, private auth: AuthService) {}
 
@@ -53,7 +60,29 @@ export class TasksComponent implements OnInit {
   }
 
   /**
-   *
+   * Editar Tarea
    */
-  edit(task: Task) {}
+  async edit(task: Task) {
+    try {
+      let updatedTask = await this.taskService.update(task.id, task);
+      this.update(updatedTask);
+      this.editForm.close();
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  /**
+   * Crear tarea
+   */
+  async create(task: Task) {
+    task.userId = this.user.id;
+    try {
+      let newTask = await this.taskService.create(task);
+      this.tasks.push(newTask);
+      this.createForm.close();
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }

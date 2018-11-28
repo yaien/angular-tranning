@@ -1,6 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef
+} from "@angular/core";
 import { User, Task } from "src/app/entities";
-import { TaskService } from "src/app/logic/task.service";
 import { NgbModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
@@ -13,31 +19,27 @@ export class TaskFormComponent {
   user: User;
 
   @Output()
-  created = new EventEmitter<Task>();
+  submited = new EventEmitter<Task>();
+
+  @ViewChild("content")
+  content: ElementRef;
 
   model = {} as Task;
 
   ref: NgbModalRef;
 
-  constructor(private taskService: TaskService, private modal: NgbModal) {}
+  constructor(private modal: NgbModal) {}
 
-  async submit() {
-    this.model.userId = this.user.id;
-    try {
-      let task = await this.taskService.create(this.model);
-      this.created.emit(task);
-      this.model = {} as Task;
-      this.close();
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  open(content) {
-    this.ref = this.modal.open(content);
+  open(task?: Task) {
+    this.model = task ? { ...task } : ({} as Task);
+    this.ref = this.modal.open(this.content);
   }
 
   close() {
     this.ref.close();
+  }
+
+  reset() {
+    this.model = {} as Task;
   }
 }

@@ -4,7 +4,9 @@
       <div class="card-header bg-primary text-light">
         <h5 class="d-inline">Tareas</h5>
         <div class="float-right">
-          <app-task-form [user]="user" (created)="add($event)"></app-task-form>
+          <button class="btn btn-sm btn-warning" (click)="createForm.open()">
+            CREAR
+          </button>
         </div>
       </div>
       <div class="card-body">
@@ -29,7 +31,7 @@
               href="#"
               class="badge badge-warning ml-3"
               title="Editar"
-              (click)="edit(task)"
+              (click)="editForm.open(task)"
               ><span class="fa fa-edit"></span>
             </a>
           </div>
@@ -39,3 +41,5 @@
     </div>
   </div>
 </div>
+<app-task-form #createForm (submited)="create($event)"></app-task-form>
+<app-task-form #editForm (submited)="edit($event)"></app-task-form>

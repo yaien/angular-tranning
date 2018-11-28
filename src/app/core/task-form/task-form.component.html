@@ -1,8 +1,6 @@
-<button class="btn btn-sm btn-warning" (click)="open(content)">AGREGAR</button>
-
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Registro</h4>
+    <h4 class="modal-title">Tareas</h4>
     <button
       type="button"
       class="close"
@@ -13,7 +11,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form #form="ngForm" (ngSubmit)="submit()">
+    <form #form="ngForm" (ngSubmit)="submited.emit(model)">
       <div class="form-group">
         <label>Nombre</label>
         <textarea
@@ -38,7 +36,7 @@
         class="btn btn-primary d-block m-auto"
         [disabled]="form.form.invalid"
       >
-        AGREGAR
+        GUARDAR
       </button>
     </form>
   </div>
