@@ -19,22 +19,29 @@
       </div>
       <ul class="list-group list-group-flush mx-0">
         <li class="list-group-item px-4 pb-0" *ngFor="let task of results">
-          <span class="badge badge-primary">
-            Fecha Limite {{ locale(task.limit) }}
-          </span>
-          <div class="float-right">
-            <app-task-complete
-              [task]="task"
-              (completed)="update($event)"
-            ></app-task-complete>
-            <a
-              href="#"
-              class="badge badge-warning ml-3"
-              title="Editar"
-              (click)="editForm.open(task)"
-              ><span class="fa fa-edit"></span>
-            </a>
+          <div class="row">
+            <div class="col-sm-6">
+              <span class="badge badge-primary">
+                Fecha Limite {{ locale(task.limit) }}
+              </span>
+            </div>
+            <div class="col-sm-6 ">
+              <div class="float-sm-right">
+                <app-task-complete
+                  [task]="task"
+                  (completed)="update($event)"
+                ></app-task-complete>
+                <a
+                  href="#"
+                  class="badge badge-warning ml-3"
+                  title="Editar"
+                  (click)="editForm.open(task)"
+                  ><span class="fa fa-edit"></span>
+                </a>
+              </div>
+            </div>
           </div>
+
           <p class="text-justified">{{ task.name }}</p>
         </li>
       </ul>

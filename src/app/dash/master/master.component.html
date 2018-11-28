@@ -1,6 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <a routerLink="" class="navbar-brand">Tareas</a>
-  <div class="collapse navbar-collapse">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbar"
+    aria-controls="navbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav ml-auto" *ngIf="(user | async)">
       <li class="nav-item">
         <a routerLink="profile" class="nav-link" title="Mi perfil">
