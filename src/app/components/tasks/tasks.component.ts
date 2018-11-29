@@ -3,11 +3,13 @@ import { TaskService } from "src/app/services/task.service";
 import { Task, User } from "src/app/interfaces";
 import { AuthService } from "src/app/services/auth.service";
 import { TaskFormComponent } from "../task-form/task-form.component";
+import { fadeLeft } from "src/app/animations";
 
 @Component({
   selector: "app-tasks",
   templateUrl: "./tasks.component.html",
-  styleUrls: ["./tasks.component.css"]
+  styleUrls: ["./tasks.component.css"],
+  animations: [fadeLeft]
 })
 export class TasksComponent implements OnInit {
   tasks: Task[] = [];
@@ -84,5 +86,14 @@ export class TasksComponent implements OnInit {
     } catch (e) {
       console.error(e);
     }
+  }
+
+  /**
+   * Elimina la tarea
+   * @param task
+   */
+  async destroy(task: Task) {
+    await this.taskService.delete(task.id);
+    this.tasks = this.tasks.filter(t => t.id !== task.id);
   }
 }

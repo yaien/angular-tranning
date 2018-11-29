@@ -30,4 +30,8 @@ export class TaskService {
     await this.db.tasks.update(id, task);
     return this.db.tasks.get(id);
   }
+
+  async delete(id: number) {
+    await this.db.users.delete(id);
+  }
 }

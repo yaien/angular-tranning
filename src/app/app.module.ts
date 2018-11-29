@@ -8,6 +8,7 @@ import { RouterModule } from "@angular/router";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { CoreModule } from "./components/core.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { CoreModule } from "./components/core.module";
     RoutingModule,
     RouterModule,
     CoreModule,
+    BrowserAnimationsModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })
