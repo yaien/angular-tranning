@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { DbService } from "./db.service";
-import { LoginPayload, User, RegisterPayload } from "../entities";
+import { LoginPayload, User, RegisterPayload } from "../interfaces";
 import { BehaviorSubject } from "rxjs";
 import * as md5 from "md5";
 import { SessionService } from "./session.service";

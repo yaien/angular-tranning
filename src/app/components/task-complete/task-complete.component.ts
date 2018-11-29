@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { Task } from "src/app/entities";
-import { TaskService } from "src/app/logic/task.service";
+import { Task } from "src/app/interfaces";
+import { TaskService } from "src/app/services/task.service";
 
 @Component({
   selector: "app-task-complete",

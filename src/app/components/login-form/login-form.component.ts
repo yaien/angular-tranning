@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgbModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
-import { LoginPayload } from "../../entities/user";
-import { AuthService } from "src/app/logic/auth.service";
+import { LoginPayload } from "../../interfaces/user";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-login-form",

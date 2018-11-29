@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { User, Task } from "../entities";
+import { User, Task } from "../interfaces";
 import { DbService } from "./db.service";
 
 @Injectable({

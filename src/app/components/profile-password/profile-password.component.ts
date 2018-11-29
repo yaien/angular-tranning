@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { PasswordProfile } from "src/app/entities";
-import { ProfileService } from "src/app/logic/profile.service";
+import { PasswordProfile } from "src/app/interfaces";
+import { ProfileService } from "src/app/services/profile.service";
 
 @Component({
   selector: "app-profile-password",

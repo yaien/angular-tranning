@@ -6,7 +6,7 @@ import {
   ViewChild,
   ElementRef
 } from "@angular/core";
-import { User, Task } from "src/app/entities";
+import { User, Task } from "src/app/interfaces";
 import { NgbModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({

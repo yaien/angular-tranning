@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from "src/app/logic/auth.service";
+import { AuthService } from "src/app/services/auth.service";
 import { Observable } from "rxjs";
-import { User } from "src/app/entities";
+import { User } from "src/app/interfaces";
 
 @Component({
   selector: "app-home",

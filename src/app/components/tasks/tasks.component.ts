@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { TaskService } from "src/app/logic/task.service";
-import { Task, User } from "src/app/entities";
-import { AuthService } from "src/app/logic/auth.service";
+import { TaskService } from "src/app/services/task.service";
+import { Task, User } from "src/app/interfaces";
+import { AuthService } from "src/app/services/auth.service";
 import { TaskFormComponent } from "../task-form/task-form.component";
 
 @Component({

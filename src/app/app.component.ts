@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from "./logic/auth.service";
+import { AuthService } from "./services/auth.service";
 import { timingSafeEqual } from "crypto";
 
 @Component({

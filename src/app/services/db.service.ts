@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import Dexie from "dexie";
-import { User, Task } from "../entities";
+import { User, Task } from "../interfaces";
 
 @Injectable({
   providedIn: "root"

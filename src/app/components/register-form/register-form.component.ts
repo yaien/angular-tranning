@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { RegisterPayload } from "../../entities/user";
-import { AuthService } from "src/app/logic/auth.service";
+import { RegisterPayload } from "../../interfaces/user";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-register-form",

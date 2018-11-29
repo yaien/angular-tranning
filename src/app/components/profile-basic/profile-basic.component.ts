@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { BasicProfile, Status } from "src/app/entities";
-import { AuthService } from "src/app/logic/auth.service";
-import { ProfileService } from "src/app/logic/profile.service";
+import { BasicProfile, Status } from "src/app/interfaces";
+import { AuthService } from "src/app/services/auth.service";
+import { ProfileService } from "src/app/services/profile.service";
 
 @Component({
   selector: "app-profile-basic",

@@ -1,7 +1,7 @@
 import { Injectable, ComponentFactoryResolver } from "@angular/core";
 import { AuthService } from "./auth.service";
 import { DbService } from "./db.service";
-import { BasicProfile } from "../entities";
+import { BasicProfile } from "../interfaces";
 import * as md5 from "md5";
 
 @Injectable({

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { AuthService } from "../logic/auth.service";
-import { User } from "../entities";
+import { AuthService } from "../services/auth.service";
+import { User } from "../interfaces";
 import {
   CanActivate,
   ActivatedRouteSnapshot,

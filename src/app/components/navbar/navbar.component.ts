@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
-import { User } from "src/app/entities";
+import { User } from "src/app/interfaces";
 
 @Component({
   selector: "app-navbar",

@@ -3,15 +3,24 @@ import { NgModule } from "@angular/core";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppComponent } from "./app.component";
-import { DashModule } from "./dash/dash.module";
-import { RoutingModule } from "./routing/routing.module";
+import { RoutingModule } from "./routes/routing.module";
 import { RouterModule } from "@angular/router";
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
+import { CoreModule } from "./components/core.module";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, NgbModule, DashModule, RoutingModule, RouterModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
+  imports: [
+    BrowserModule,
+    NgbModule,
+    RoutingModule,
+    RouterModule,
+    CoreModule,
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production
+    })
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
