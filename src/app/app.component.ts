@@ -1,14 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "./services/auth.service";
-import { timingSafeEqual } from "crypto";
+import { RouterOutlet } from "@angular/router";
+import { slideInAnimations } from "./animations";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  styleUrls: ["./app.component.css"],
+  animations: [slideInAnimations]
 })
 export class AppComponent implements OnInit {
-  title = "internal";
   ready = false;
 
   constructor(private auth: AuthService) {}
@@ -21,5 +22,13 @@ export class AppComponent implements OnInit {
     } finally {
       this.ready = true;
     }
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData["animation"]
+    );
   }
 }

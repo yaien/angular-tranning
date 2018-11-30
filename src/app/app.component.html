@@ -1,1 +1,5 @@
-<app-master *ngIf="ready"><router-outlet></router-outlet></app-master>
+<app-master *ngIf="ready">
+  <div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</app-master>
