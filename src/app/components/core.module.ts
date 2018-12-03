@@ -19,6 +19,7 @@ import {
   RecaptchaSettings
 } from "ng-recaptcha";
 import { RecaptchaFormsModule } from "ng-recaptcha/forms";
+import { environment } from "src/environments/environment";
 
 @NgModule({
   imports: [
@@ -56,7 +57,7 @@ import { RecaptchaFormsModule } from "ng-recaptcha/forms";
     {
       provide: RECAPTCHA_SETTINGS,
       useValue: {
-        siteKey: "6LfwZ34UAAAAAObJyst0Do6FmZPi1-1owTe0rr1_"
+        siteKey: environment.recaptcha.siteKey
       } as RecaptchaSettings
     }
   ]
