@@ -13,6 +13,12 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { MasterComponent } from "./master/master.component";
 import { GravatarModule } from "ngx-gravatar";
 import { RouterModule } from "@angular/router";
+import {
+  RecaptchaModule,
+  RECAPTCHA_SETTINGS,
+  RecaptchaSettings
+} from "ng-recaptcha";
+import { RecaptchaFormsModule } from "ng-recaptcha/forms";
 
 @NgModule({
   imports: [
@@ -21,7 +27,9 @@ import { RouterModule } from "@angular/router";
     FormsModule,
     ReactiveFormsModule,
     GravatarModule,
-    RouterModule
+    RouterModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
   declarations: [
     LoginFormComponent,
@@ -43,6 +51,14 @@ import { RouterModule } from "@angular/router";
     TaskCompleteComponent,
     NavbarComponent,
     MasterComponent
+  ],
+  providers: [
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: "6LfwZ34UAAAAAObJyst0Do6FmZPi1-1owTe0rr1_"
+      } as RecaptchaSettings
+    }
   ]
 })
 export class CoreModule {}

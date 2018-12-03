@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { NgbModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 import { LoginPayload } from "../../interfaces/user";
 import { AuthService } from "src/app/services/auth.service";
+import { RecaptchaComponent } from "ng-recaptcha";
 
 @Component({
   selector: "app-login-form",
@@ -13,7 +14,11 @@ export class LoginFormComponent implements OnInit {
 
   model = {} as LoginPayload;
   status: string;
+  recaptcha: boolean;
   ref: NgbModalRef;
+
+  @ViewChild(RecaptchaComponent)
+  captcha: RecaptchaComponent;
 
   ngOnInit() {}
 
@@ -30,6 +35,7 @@ export class LoginFormComponent implements OnInit {
       await this.auth.login(this.model);
     } catch (e) {
       this.status = e.message;
+      this.captcha.reset();
     }
   }
 }
