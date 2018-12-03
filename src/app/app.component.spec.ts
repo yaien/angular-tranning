@@ -1,31 +1,30 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { TestBed, async } from "@angular/core/testing";
+import { AppComponent } from "./app.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { RoutingModule } from "./routes/routing.module";
+import { RouterModule } from "@angular/router";
+import { CoreModule } from "./components/core.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { APP_BASE_HREF } from "@angular/common";
 
-describe('AppComponent', () => {
+describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      declarations: [AppComponent],
+      imports: [
+        NgbModule,
+        RoutingModule,
+        RouterModule,
+        CoreModule,
+        BrowserAnimationsModule
       ],
+      providers: [{ provide: APP_BASE_HREF, useValue: "/" }]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it("should create the app", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'internal'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('internal');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to internal!');
   });
 });
