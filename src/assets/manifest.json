@@ -1,7 +1,7 @@
 {
   "name": "Tareas",
   "description": "Todo App",
-  "start_url": "/",
+  "start_url": "https://stevenson-angular.netlify.com/",
   "short_name": "Tareas",
   "theme_color": "#007bff",
   "background_color": "#FFFFFF",
